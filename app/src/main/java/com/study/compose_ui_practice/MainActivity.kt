@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.study.compose_ui_practice.ui.theme.Compose_ui_practiceTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,29 +20,28 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Compose_ui_practiceTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                MainScreen(
+                    "Main",
+                    Modifier.padding(10.dp)
+                )
             }
         }
     }
 }
 
+// Compose UI 실습 기본 화면
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun MainScreen(text: String, modifier: Modifier = Modifier){
     Text(
-        text = "Hello $name!",
-        modifier = modifier
+        text,
+        modifier
     )
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun MainPreview() {
     Compose_ui_practiceTheme {
-        Greeting("Android")
+        MainScreen("Main")
     }
 }
