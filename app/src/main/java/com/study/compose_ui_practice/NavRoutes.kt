@@ -1,0 +1,11 @@
+package com.study.compose_ui_practice
+
+// 내비게이션 경로 선언을 위한 클래스
+sealed class NavRoutes(val routes: String) {
+    object Main : NavRoutes("Main")
+    object RowCol : NavRoutes("RowCol")
+    object LazyRowCol : NavRoutes("LazyRowCol")
+    object BoxLay : NavRoutes("BoxLay")
+    object ConstLay : NavRoutes("ConstLay")
+
+}
