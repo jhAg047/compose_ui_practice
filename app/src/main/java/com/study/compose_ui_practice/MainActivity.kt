@@ -5,8 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -37,15 +39,21 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen(text: String, modifier: Modifier = Modifier){
 
-    // 기본화면 : Main.kt
+    // 기본화면 : MainLay.kt
 
     // 내비게이션 추가
     val navController = rememberNavController()
 
+
     NavHost(
         navController = navController,
-        startDestination = NavRoutes.Main.routes
+        startDestination = NavRoutes.MainLay.routes
     ) {
+        // Main Layout
+        composable(NavRoutes.MainLay.routes){
+            MainLay(navController)
+        }
+
         // Row and Column Layout
         composable(NavRoutes.RowCol.routes) {
             RowCol(navController)
@@ -68,7 +76,22 @@ fun MainScreen(text: String, modifier: Modifier = Modifier){
 
     }
 
+    Box() {
+        Button(
+            onClick = { navController.navigate(NavRoutes.RowCol.routes) }
+        ) {
+            Text("RowCol")
+        }
+        Button(
+            onClick = { navController.navigate(NavRoutes.BoxLay.routes) }
+        ) {
+            Text("Box")
+        }
+    }
+
 }
+
+
 
 @Preview(showBackground = true)
 @Composable
