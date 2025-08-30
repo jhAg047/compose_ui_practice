@@ -1,4 +1,4 @@
-package com.study.compose_ui_practice
+package com.study.compose_ui_practice.layout
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

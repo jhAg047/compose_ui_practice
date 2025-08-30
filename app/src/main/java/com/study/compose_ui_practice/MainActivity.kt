@@ -4,20 +4,20 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.study.compose_ui_practice.layout.BoxLay
+import com.study.compose_ui_practice.layout.ConstLay
+import com.study.compose_ui_practice.layout.CustomLay
+import com.study.compose_ui_practice.layout.LazyRowCol
+import com.study.compose_ui_practice.layout.MainLay
+import com.study.compose_ui_practice.layout.RowCol
 import com.study.compose_ui_practice.ui.theme.Compose_ui_practiceTheme
 
 class MainActivity : ComponentActivity() {
@@ -39,11 +39,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen(text: String, modifier: Modifier = Modifier){
 
-    // 기본화면 : MainLay.kt
+    // 초기화면 : MainLay.kt
 
     // 내비게이션 추가
     val navController = rememberNavController()
-
 
     NavHost(
         navController = navController,
@@ -74,18 +73,9 @@ fun MainScreen(text: String, modifier: Modifier = Modifier){
             ConstLay(navController)
         }
 
-    }
-
-    Box() {
-        Button(
-            onClick = { navController.navigate(NavRoutes.RowCol.routes) }
-        ) {
-            Text("RowCol")
-        }
-        Button(
-            onClick = { navController.navigate(NavRoutes.BoxLay.routes) }
-        ) {
-            Text("Box")
+        // Custom Layout
+        composable(NavRoutes.CustomLay.routes){
+            CustomLay(navController)
         }
     }
 
