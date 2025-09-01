@@ -40,7 +40,16 @@ fun MainLay(navController: NavController) {
                 }
             }
             Row {
-
+                Button(
+                    onClick = { navController.navigate(NavRoutes.ConstLay.routes) }
+                ) {
+                    Text("ConstLay")
+                }
+                Button(
+                    onClick = { navController.navigate(NavRoutes.LazyRowCol.routes) }
+                ) {
+                    Text("Lazy")
+                }
             }
 
         }
