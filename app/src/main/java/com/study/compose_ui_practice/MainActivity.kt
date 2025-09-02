@@ -63,6 +63,11 @@ fun MainScreen(text: String, modifier: Modifier = Modifier){
             LazyRowCol(navController)
         }
 
+        // LazyRow and LazyColumn 2
+        composable(NavRoutes.LazyListLay.routes){
+            LazyListLay(navController)
+        }
+
         // Box Layout
         composable(NavRoutes.BoxLay.routes) {
             BoxLay(navController)
@@ -77,6 +82,7 @@ fun MainScreen(text: String, modifier: Modifier = Modifier){
         composable(NavRoutes.CustomLay.routes){
             CustomLay(navController)
         }
+
     }
 
 }

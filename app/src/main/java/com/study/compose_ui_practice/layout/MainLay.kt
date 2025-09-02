@@ -1,6 +1,7 @@
 package com.study.compose_ui_practice.layout
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
@@ -22,33 +23,41 @@ fun MainLay(navController: NavController) {
         Box(
             contentAlignment = Alignment.Center
         ) {
-            Row {
-                Button(
-                    onClick = { navController.navigate(NavRoutes.RowCol.routes) }
-                ) {
-                    Text("RowCol")
+            Column {
+                Row {
+                    Button(
+                        onClick = { navController.navigate(NavRoutes.RowCol.routes) }
+                    ) {
+                        Text("RowCol")
+                    }
+                    Button(
+                        onClick = { navController.navigate(NavRoutes.BoxLay.routes) }
+                    ) {
+                        Text("Box")
+                    }
+                    Button(
+                        onClick = { navController.navigate(NavRoutes.CustomLay.routes) }
+                    ) {
+                        Text("Custom")
+                    }
                 }
-                Button(
-                    onClick = { navController.navigate(NavRoutes.BoxLay.routes) }
-                ) {
-                    Text("Box")
-                }
-                Button(
-                    onClick = { navController.navigate(NavRoutes.CustomLay.routes) }
-                ) {
-                    Text("Custom")
-                }
-            }
-            Row {
-                Button(
-                    onClick = { navController.navigate(NavRoutes.ConstLay.routes) }
-                ) {
-                    Text("ConstLay")
-                }
-                Button(
-                    onClick = { navController.navigate(NavRoutes.LazyRowCol.routes) }
-                ) {
-                    Text("Lazy")
+                Row {
+                    Button(
+                        onClick = { navController.navigate(NavRoutes.ConstLay.routes) }
+                    ) {
+                        Text("ConstLay")
+                    }
+                    Button(
+                        onClick = { navController.navigate(NavRoutes.LazyRowCol.routes) }
+                    ) {
+                        Text("Lazy")
+                    }
+                    Button(
+                        onClick = { navController.navigate(NavRoutes.LazyListLay.routes) }
+                    ) {
+                        Text("Lazy2")
+                    }
+
                 }
             }
 

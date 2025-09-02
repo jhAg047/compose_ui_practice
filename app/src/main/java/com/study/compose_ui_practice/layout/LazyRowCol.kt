@@ -28,7 +28,6 @@ import androidx.navigation.NavController
 @Composable
 fun LazyRowCol(navController: NavController) {
 
-    // 수정예정
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -36,7 +35,6 @@ fun LazyRowCol(navController: NavController) {
     ) {
         Text(
             text = "LazyRow Example",
-            style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.padding(bottom = 8.dp)
         )
 
@@ -47,14 +45,15 @@ fun LazyRowCol(navController: NavController) {
                 .height(100.dp)
         ) {
             items(10) { index ->
-                Box(
+                /*Box(
                     modifier = Modifier
                         .size(80.dp)
                         .background(Color(0xFF80CBC4), shape = RoundedCornerShape(12.dp)),
                     contentAlignment = Alignment.Center
                 ) {
                     Text(text = "Item $index")
-                }
+                }*/
+             RowItem("$index")
             }
         }
 
@@ -71,7 +70,7 @@ fun LazyRowCol(navController: NavController) {
             modifier = Modifier.fillMaxSize()
         ) {
             items(20) { index ->
-                Card(
+                /*Card(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(60.dp),
@@ -87,9 +86,43 @@ fun LazyRowCol(navController: NavController) {
                             modifier = Modifier.padding(start = 16.dp)
                         )
                     }
-                }
+                }*/
+                ColItem("$index")
             }
         }
     }
 
+}
+
+@Composable
+fun RowItem(text:String){
+    Box(
+        modifier = Modifier
+            .size(80.dp)
+            .background(Color(0xFF80CBC4), shape = RoundedCornerShape(12.dp)),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(text = "Item $text")
+    }
+}
+
+@Composable
+fun ColItem(text: String){
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(60.dp),
+        shape = RoundedCornerShape(12.dp),
+        elevation = CardDefaults.cardElevation(4.dp)
+    ) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.CenterStart
+        ) {
+            Text(
+                text = "List Item $text",
+                modifier = Modifier.padding(start = 16.dp)
+            )
+        }
+    }
 }
