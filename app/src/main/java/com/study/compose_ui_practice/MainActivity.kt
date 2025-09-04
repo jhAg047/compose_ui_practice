@@ -15,6 +15,8 @@ import androidx.navigation.compose.rememberNavController
 import com.study.compose_ui_practice.layout.BoxLay
 import com.study.compose_ui_practice.layout.ConstLay
 import com.study.compose_ui_practice.layout.CustomLay
+import com.study.compose_ui_practice.layout.GridLay
+import com.study.compose_ui_practice.layout.LazyListLay
 import com.study.compose_ui_practice.layout.LazyRowCol
 import com.study.compose_ui_practice.layout.MainLay
 import com.study.compose_ui_practice.layout.RowCol
@@ -81,6 +83,11 @@ fun MainScreen(text: String, modifier: Modifier = Modifier){
         // Custom Layout
         composable(NavRoutes.CustomLay.routes){
             CustomLay(navController)
+        }
+
+        // Grid Layout
+        composable(NavRoutes.GridLay.routes){
+            GridLay(navController)
         }
 
     }

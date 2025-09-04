@@ -9,5 +9,5 @@ sealed class NavRoutes(val routes: String) {
     object ConstLay : NavRoutes("ConstLay")
     object CustomLay : NavRoutes("Custom")
     object LazyListLay : NavRoutes("LazyList")
-
+    object GridLay : NavRoutes("GridLay")
 }

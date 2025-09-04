@@ -59,6 +59,13 @@ fun MainLay(navController: NavController) {
                     }
 
                 }
+                Row {
+                    Button(
+                        onClick = { navController.navigate(NavRoutes.GridLay.routes) }
+                    ) {
+                        Text("Grid")
+                    }
+                }
             }
 
         }
