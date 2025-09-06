@@ -65,6 +65,23 @@ fun MainLay(navController: NavController) {
                     ) {
                         Text("Grid")
                     }
+                    Button(
+                        onClick = { navController.navigate(NavRoutes.AnimateLay.routes) }
+                    ) {
+                        Text("Animate")
+                    }
+                    Button(
+                        onClick = { navController.navigate(NavRoutes.StateAnimateLay.routes) }
+                    ) {
+                        Text("StateAnimate")
+                    }
+
+                    Button(
+                        onClick = { navController.navigate(NavRoutes.CanvasLay.routes) }
+                    ) {
+                        Text("Canvas")
+                    }
+
                 }
             }
 

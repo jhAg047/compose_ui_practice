@@ -12,7 +12,9 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.study.compose_ui_practice.layout.AnimateLay
 import com.study.compose_ui_practice.layout.BoxLay
+import com.study.compose_ui_practice.layout.CanvasLay
 import com.study.compose_ui_practice.layout.ConstLay
 import com.study.compose_ui_practice.layout.CustomLay
 import com.study.compose_ui_practice.layout.GridLay
@@ -20,6 +22,7 @@ import com.study.compose_ui_practice.layout.LazyListLay
 import com.study.compose_ui_practice.layout.LazyRowCol
 import com.study.compose_ui_practice.layout.MainLay
 import com.study.compose_ui_practice.layout.RowCol
+import com.study.compose_ui_practice.layout.StateAnimateLay
 import com.study.compose_ui_practice.ui.theme.Compose_ui_practiceTheme
 
 class MainActivity : ComponentActivity() {
@@ -90,6 +93,20 @@ fun MainScreen(text: String, modifier: Modifier = Modifier){
             GridLay(navController)
         }
 
+        // Animate Layout
+        composable(NavRoutes.AnimateLay.routes){
+            AnimateLay(navController)
+        }
+
+        // State Animate Layout
+        composable(NavRoutes.StateAnimateLay.routes){
+            StateAnimateLay(navController)
+        }
+
+        // Canvas Layout
+        composable(NavRoutes.CanvasLay.routes){
+            CanvasLay(navController)
+        }
     }
 
 }

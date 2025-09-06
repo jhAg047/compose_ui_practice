@@ -10,4 +10,7 @@ sealed class NavRoutes(val routes: String) {
     object CustomLay : NavRoutes("Custom")
     object LazyListLay : NavRoutes("LazyList")
     object GridLay : NavRoutes("GridLay")
+    object AnimateLay : NavRoutes("AnimateLay")
+    object StateAnimateLay : NavRoutes("StateAnimateLay")
+    object CanvasLay : NavRoutes("CanvasLay")
 }
