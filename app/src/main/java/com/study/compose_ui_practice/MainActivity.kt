@@ -9,9 +9,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.study.compose_ui_practice.bottomNav.BtNavRoutes
+import com.study.compose_ui_practice.bottomNav.Contacts
+import com.study.compose_ui_practice.bottomNav.Favorites
+import com.study.compose_ui_practice.bottomNav.Home
 import com.study.compose_ui_practice.layout.AnimateLay
 import com.study.compose_ui_practice.layout.BoxLay
 import com.study.compose_ui_practice.layout.CanvasLay
@@ -23,6 +28,7 @@ import com.study.compose_ui_practice.layout.LazyRowCol
 import com.study.compose_ui_practice.layout.MainLay
 import com.study.compose_ui_practice.layout.RowCol
 import com.study.compose_ui_practice.layout.StateAnimateLay
+import com.study.compose_ui_practice.layout.ViewModelLay
 import com.study.compose_ui_practice.ui.theme.Compose_ui_practiceTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,7 +38,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             Compose_ui_practiceTheme {
                 MainScreen(
-                    "Compose UI 실습",
                     Modifier.padding(10.dp)
                 )
             }
@@ -42,7 +47,7 @@ class MainActivity : ComponentActivity() {
 
 // Compose UI 실습 기본 화면
 @Composable
-fun MainScreen(text: String, modifier: Modifier = Modifier){
+fun MainScreen(modifier: Modifier = Modifier){
 
     // 초기화면 : MainLay.kt
 
@@ -107,6 +112,24 @@ fun MainScreen(text: String, modifier: Modifier = Modifier){
         composable(NavRoutes.CanvasLay.routes){
             CanvasLay(navController)
         }
+
+        // ViewModel Layout -> 수정 예정
+        /*composable(NavRoutes.ViewModelLay.routes){
+            val vm:MyViewModel = hiltViewModel()
+            ViewModelLay(navController,vm)
+        }*/
+
+        // bottom navigation
+        composable(BtNavRoutes.Home.route){
+            Home()
+        }
+        composable(BtNavRoutes.Contacts.route){
+            Contacts()
+        }
+        composable(BtNavRoutes.Favorites.route){
+            Favorites()
+        }
+
     }
 
 }
@@ -117,6 +140,6 @@ fun MainScreen(text: String, modifier: Modifier = Modifier){
 @Composable
 fun MainPreview() {
     Compose_ui_practiceTheme {
-        MainScreen("Main")
+        MainScreen()
     }
 }

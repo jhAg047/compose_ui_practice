@@ -13,4 +13,5 @@ sealed class NavRoutes(val routes: String) {
     object AnimateLay : NavRoutes("AnimateLay")
     object StateAnimateLay : NavRoutes("StateAnimateLay")
     object CanvasLay : NavRoutes("CanvasLay")
+    object ViewModelLay : NavRoutes("ViewModelLay")
 }
