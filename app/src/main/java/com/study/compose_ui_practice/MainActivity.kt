@@ -22,6 +22,7 @@ import com.study.compose_ui_practice.layout.BoxLay
 import com.study.compose_ui_practice.layout.CanvasLay
 import com.study.compose_ui_practice.layout.ConstLay
 import com.study.compose_ui_practice.layout.CustomLay
+import com.study.compose_ui_practice.layout.GestureLay
 import com.study.compose_ui_practice.layout.GridLay
 import com.study.compose_ui_practice.layout.LazyListLay
 import com.study.compose_ui_practice.layout.LazyRowCol
@@ -118,6 +119,11 @@ fun MainScreen(modifier: Modifier = Modifier){
             val vm:MyViewModel = hiltViewModel()
             ViewModelLay(navController,vm)
         }*/
+
+        // Gestures Layout
+        composable(NavRoutes.GestureLay.routes) {
+            GestureLay(navController)
+        }
 
         // bottom navigation
         composable(BtNavRoutes.Home.route){
