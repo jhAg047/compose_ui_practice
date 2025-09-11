@@ -15,4 +15,5 @@ sealed class NavRoutes(val routes: String) {
     object CanvasLay : NavRoutes("CanvasLay")
     object ViewModelLay : NavRoutes("ViewModelLay")
     object GestureLay : NavRoutes("Gesture")
+    object SwipeLay : NavRoutes("Swipe")
 }

@@ -111,6 +111,19 @@ fun MainButtonView(navController: NavController,modifier: Modifier = Modifier){
                     }
 
                 }
+                Row {
+                    Button(
+                        onClick = { navController.navigate(NavRoutes.GestureLay.routes) }
+                    ) {
+                        Text("Gesture")
+                    }
+                    Button(
+                        onClick = { navController.navigate(NavRoutes.SwipeLay.routes) }
+                    ) {
+                        Text("Swipe")
+                    }
+                }
+
             }
         }
     }

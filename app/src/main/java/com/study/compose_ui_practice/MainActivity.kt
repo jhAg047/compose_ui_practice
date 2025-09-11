@@ -29,6 +29,7 @@ import com.study.compose_ui_practice.layout.LazyRowCol
 import com.study.compose_ui_practice.layout.MainLay
 import com.study.compose_ui_practice.layout.RowCol
 import com.study.compose_ui_practice.layout.StateAnimateLay
+import com.study.compose_ui_practice.layout.SwipeLay
 import com.study.compose_ui_practice.layout.ViewModelLay
 import com.study.compose_ui_practice.ui.theme.Compose_ui_practiceTheme
 
@@ -123,6 +124,10 @@ fun MainScreen(modifier: Modifier = Modifier){
         // Gestures Layout
         composable(NavRoutes.GestureLay.routes) {
             GestureLay(navController)
+        }
+
+        composable(NavRoutes.SwipeLay.routes) {
+            SwipeLay(navController)
         }
 
         // bottom navigation

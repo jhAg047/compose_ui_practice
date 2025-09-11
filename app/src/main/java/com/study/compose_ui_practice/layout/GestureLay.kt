@@ -1,5 +1,6 @@
 package com.study.compose_ui_practice.layout
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
@@ -8,7 +9,10 @@ import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
 import androidx.compose.foundation.gestures.rememberScrollableState
+import androidx.compose.foundation.gestures.rememberTransformableState
 import androidx.compose.foundation.gestures.scrollable
+import androidx.compose.foundation.gestures.transformable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -17,6 +21,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -25,11 +31,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.study.compose_ui_practice.R
 import kotlin.math.roundToInt
 
 @Composable
@@ -174,3 +185,61 @@ fun ScrollableModifier() {
 
 }
 
+// scroll modifier를 통한 스크롤
+// scrollable modifier는 한방향의 스크롤만 감지 가능 수평 및 수직 스크롤을 모두 감지하려면 scroll Modifier 사용
+@Composable
+fun ScrollModifier(){
+    val image = ImageBitmap.imageResource(id = R.drawable.poncho)
+
+    Box(modifier = Modifier
+        .size(150.dp)
+        .verticalScroll(rememberScrollState())
+        .horizontalScroll(rememberScrollState())){
+        Canvas(
+            modifier = Modifier
+                .size(360.dp, 270.dp)
+        ) {
+            drawImage(
+                image = image,
+                topLeft = Offset(
+                    x = 0f,
+                    y = 0f
+                )
+            )
+        }
+    }
+}
+
+// 꼬집기 (확대/축소) 제스처 감지
+@Composable
+fun MultiTouchDemo() {
+    var scale by remember { mutableStateOf(0f) }
+
+    // 회전 제스처 감지
+    var angle by remember { mutableStateOf(0f) }
+
+    // 변환 제스처 감지
+    var offset by remember { mutableStateOf(Offset.Zero) }
+
+    val state = rememberTransformableState {
+        scaleChange, offsetChange, rotatioChange ->
+        scale *= scaleChange
+        angle += rotatioChange
+        offset += offsetChange
+    }
+
+    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
+        Box(Modifier
+            .graphicsLayer(
+                scaleX = scale,
+                scaleY = scale,
+                rotationZ = angle,
+                translationX = offset.x,
+                translationY = offset.y
+            )
+            .transformable(state = state)
+            .background(Color.Blue)
+            .size(100.dp)
+        )
+    }
+}
