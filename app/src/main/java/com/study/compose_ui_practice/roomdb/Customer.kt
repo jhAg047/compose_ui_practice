@@ -5,15 +5,15 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import javax.annotation.Nonnull
 
-//Room DB example
-@Entity(tableName = "customers")
+//Room DB Entitiy example
+//@Entity(tableName = "customers")
 class Customer {
-    @PrimaryKey(autoGenerate = true)
-    @Nonnull
-    @ColumnInfo(name = "customerId")
+//    @PrimaryKey(autoGenerate = true)
+//    @Nonnull
+//    @ColumnInfo(name = "customerId")
     var id : Int = 0
 
-    @ColumnInfo(name = "customerName")
+//    @ColumnInfo(name = "customerName")
     var name: String? = null
 
     // @ColumnInfo가 없으면 db에 저장은 되는데 SQL 구문에서 참조될 필요는 없음을 의미
