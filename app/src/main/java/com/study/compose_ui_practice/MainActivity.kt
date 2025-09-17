@@ -27,6 +27,7 @@ import com.study.compose_ui_practice.layout.GridLay
 import com.study.compose_ui_practice.layout.LazyListLay
 import com.study.compose_ui_practice.layout.LazyRowCol
 import com.study.compose_ui_practice.layout.MainLay
+import com.study.compose_ui_practice.layout.ProductLay
 import com.study.compose_ui_practice.layout.RowCol
 import com.study.compose_ui_practice.layout.StateAnimateLay
 import com.study.compose_ui_practice.layout.SwipeLay
@@ -126,8 +127,14 @@ fun MainScreen(modifier: Modifier = Modifier){
             GestureLay(navController)
         }
 
+        // Swipe Gesture Lay
         composable(NavRoutes.SwipeLay.routes) {
             SwipeLay(navController)
+        }
+
+        // Room DB Product Lay
+        composable(NavRoutes.ProductLay.routes) {
+            ProductLay(navController)
         }
 
         // bottom navigation
