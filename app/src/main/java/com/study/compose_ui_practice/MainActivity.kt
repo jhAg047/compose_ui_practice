@@ -1,15 +1,24 @@
 package com.study.compose_ui_practice
 
+import android.app.Application
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -32,6 +41,9 @@ import com.study.compose_ui_practice.layout.RowCol
 import com.study.compose_ui_practice.layout.StateAnimateLay
 import com.study.compose_ui_practice.layout.SwipeLay
 import com.study.compose_ui_practice.layout.ViewModelLay
+import com.study.compose_ui_practice.roomdb.Product
+import com.study.compose_ui_practice.roomdb.ProductViewModel
+import com.study.compose_ui_practice.roomdb.ProductViewModelFactory
 import com.study.compose_ui_practice.ui.theme.Compose_ui_practiceTheme
 
 class MainActivity : ComponentActivity() {
@@ -40,6 +52,22 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Compose_ui_practiceTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    val owner = LocalViewModelStoreOwner.current
+
+                    owner?.let {
+                        val viewModel: ProductViewModel = viewModel(
+                            it,
+                            "ProductViewModel",
+                            ProductViewModelFactory(
+                                LocalContext.current.applicationContext as Application)
+                        )
+
+                    }
+                }
                 MainScreen(
                     Modifier.padding(10.dp)
                 )
