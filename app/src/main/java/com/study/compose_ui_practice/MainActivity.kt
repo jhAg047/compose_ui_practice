@@ -10,13 +10,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.*
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
@@ -40,8 +37,6 @@ import com.study.compose_ui_practice.layout.ProductLay
 import com.study.compose_ui_practice.layout.RowCol
 import com.study.compose_ui_practice.layout.StateAnimateLay
 import com.study.compose_ui_practice.layout.SwipeLay
-import com.study.compose_ui_practice.layout.ViewModelLay
-import com.study.compose_ui_practice.roomdb.Product
 import com.study.compose_ui_practice.roomdb.ProductViewModel
 import com.study.compose_ui_practice.roomdb.ProductViewModelFactory
 import com.study.compose_ui_practice.ui.theme.Compose_ui_practiceTheme
