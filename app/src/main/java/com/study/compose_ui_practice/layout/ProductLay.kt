@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -39,7 +38,8 @@ fun ProductLay(navController: NavController) {
 
 @Composable
 fun ProductMain(){
-
+    // mainActivity에서 veiwModel 넘겨주기?
+//    DataSetup()
 }
 
 @Composable
@@ -96,6 +96,7 @@ fun CustomTextField(
 
 }
 
+// 초기 화면 구성
 @Composable
 fun DataSetup(viewModel: ProductViewModel){
     val allProducts by viewModel.allProducts.observeAsState(listOf())

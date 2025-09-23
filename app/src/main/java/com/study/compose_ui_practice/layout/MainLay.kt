@@ -122,6 +122,11 @@ fun MainButtonView(navController: NavController,modifier: Modifier = Modifier){
                     ) {
                         Text("Swipe")
                     }
+                    Button(
+                        onClick = { navController.navigate(NavRoutes.ProductLay.routes) }
+                    ) {
+                        Text("Product")
+                    }
                 }
 
             }
